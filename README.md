@@ -149,18 +149,6 @@ sudo REMOVE_DATA=1 ./uninstall.sh
 - 配置 HTTPS：将证书放入安装后的 `/opt/nginx-docker/nginx/certs/`，并在 nginx 站点配置中引用。
 - 修改安装目录或服务名：编辑 `package.conf` 后再执行安装。
 
-## 与原始需求的对应关系
-
-- 使用 Docker 方式部署 nginx：已满足，nginx 由 Docker Compose 启动和管理。
-- 安装包内包含 Docker：已满足，使用 `assets/docker/docker-x86_64.tgz`。
-- 安装包内包含 Docker Compose：已满足，使用 `assets/compose/docker-compose-linux-x86_64`。
-- 安装时检查 Docker 和 Compose，缺失则离线安装：已满足。
-- 安装包自包含 nginx 容器镜像：已满足，使用 `assets/images/nginx-stable.tar.gz`。
-- Docker 环境检查完成后导入 nginx 镜像：已满足，Docker 就绪后执行 `docker load`。
-- 准备 nginx 配置、挂载配置和 `docker-compose.yml`：已满足。
-- 支持服务管理和注册服务：已满足，注册 `nginx-docker.service`，并提供 `nginx-docker` 管理命令。
-- 安装完成后启动服务器：已满足，安装结束会启动 `nginx-docker.service`。
-
 ## 适用环境与限制
 
 - 目标服务器要求 Linux + systemd。
