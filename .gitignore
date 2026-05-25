@@ -1,0 +1,13 @@
+.DS_Store
+dist/
+SHA256SUMS
+
+assets/docker/*.tgz
+assets/compose/docker-compose-linux-x86_64
+assets/compose/docker-compose-linux-x86_64.sha256
+assets/images/*.tar
+assets/images/*.tar.gz
+
+!assets/docker/.gitkeep
+!assets/compose/.gitkeep
+!assets/images/.gitkeep

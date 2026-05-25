@@ -1,0 +1,18 @@
+[Unit]
+Description=Nginx Docker Compose Service
+Requires=docker.service
+After=docker.service network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+WorkingDirectory=/opt/nginx-docker
+EnvironmentFile=/opt/nginx-docker/.env
+ExecStart=/usr/local/bin/nginx-docker _up
+ExecStop=/usr/local/bin/nginx-docker _down
+ExecReload=/usr/local/bin/nginx-docker _reload
+TimeoutStartSec=0
+
+[Install]
+WantedBy=multi-user.target
