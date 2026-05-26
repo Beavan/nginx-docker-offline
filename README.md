@@ -65,6 +65,14 @@ cd nginx-offline-installer
 dist/nginx-offline-installer-<version>.tar.gz
 ```
 
+默认命令会生成完整开发包。如果需要发布给安装人员，使用发布模式生成精简包：
+
+```bash
+./scripts/build-package.sh --release
+```
+
+发布模式会排除 `scripts/`、`.git*`、`dist/`、`.DS_Store` 等非安装文件，并将包内 `README.md` 替换为仅包含安装说明的版本。
+
 可选环境变量：
 
 - `PACKAGE_VERSION`：安装包版本号，默认使用当前日期时间。
